@@ -53,7 +53,7 @@ TODO: Leave the steps below if you want others to contribute to your project.
 ## Additional Documentation
 
 TODO: Provide links to additional documentation that may exist in the repo, e.g.,
-  * Sprint reports
+  * [Sprint one Video](https://youtu.be/S8LtQ6oNvmo)
   * User links
 
 ## License
