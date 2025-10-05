@@ -57,4 +57,4 @@ TODO: Provide links to additional documentation that may exist in the repo, e.g.
   * User links
 
 ## License
-License is located in the LICENSE file in main.
+[License is located in the LICENSE file in main.](https://github.com/Kronera/CptS421AWWGr23/blob/4532b9d524ae301612e79c540446a4b5bb4fee3d/LICENSE)
