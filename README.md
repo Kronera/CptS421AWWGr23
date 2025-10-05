@@ -4,7 +4,7 @@
 
 ## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
 
-### One-sentence description of the project
+### We plan on building a new webpage for A Womans Worth organization that is inviting and easy for users.
 
 TODO: A 20-second elevator pitch of your project - its core idea summarized in one sentence.
 
@@ -57,6 +57,4 @@ TODO: Provide links to additional documentation that may exist in the repo, e.g.
   * User links
 
 ## License
-
-If you haven't already, add a file called `LICENSE.txt` with the text of the appropriate license.
-We recommend using the MIT license: <https://choosealicense.com/licenses/mit/>
+License is located in the LICENSE file in main.
