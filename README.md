@@ -1,4 +1,4 @@
-# CptS421AWWGr23
+# CptS421 AWW Gr23
 
 # A Womans Worth
 
