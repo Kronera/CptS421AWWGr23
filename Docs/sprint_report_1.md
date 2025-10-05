@@ -25,15 +25,14 @@ We evaluated the existing AWW site, identified performance and usability issues,
 ---
 
 ## Unfinished Work
-We planned to complete prototype design for website. 
-This task has been carried over to Sprint 2, where we’ll focus on connecting both layers and integrating MongoDB for persistent storage.
+
 
 ---
 
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
 
- * 
+ * https://github.com/users/Kronera/projects/4
 
 ---
 
@@ -68,6 +67,7 @@ Please review the following code files, which were actively developed during thi
  
 
 ---
+
 
 
 
