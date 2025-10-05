@@ -18,7 +18,7 @@
 
 ## Work Summary (Developer Facing)
 During Sprint 1, our team focused on gathering requirements, analyzing the client’s current platform, and establishing a strong technical foundation.  
-We met twice with our client (Gaye Hallman and Patty) to identify core needs and confirm priorities: story submission, donation processing, event management, and CMS usability.  
+We meet bi-weekly with our client (Gaye Hallman and Patty) to identify core needs and confirm priorities: story submission, donation processing, event management, and CMS usability.  
 From these meetings, we documented user stories, use cases, UML diagrams, and system specifications. Each team member contributed distinct roles—Natan led documentation, Julian handled UML and architecture, and Kyle researched framework setup.  
 We evaluated the existing AWW site, identified performance and usability issues, and outlined our improvement roadmap. The team also familiarized itself with React, Node.js/Express, and MongoDB to prepare for full-stack development in Sprint 2.
 
@@ -68,5 +68,6 @@ Please review the following code files, which were actively developed during thi
  
 
 ---
+
 
 
