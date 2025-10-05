@@ -7,9 +7,9 @@ If any of the sections in this template grows to more than one screen, consider 
 
 Provide a README file with the following information:
 
-#A Womans Worth
+# A Womans Worth
 
-##We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
+## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
 
 ### One-sentence description of the project
 
