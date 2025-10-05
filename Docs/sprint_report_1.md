@@ -1,7 +1,7 @@
 # Sprint 1 Report (September 12, 2025 – October 3, 2025)
 
 ## YouTube link of Sprint 1 Video (Make this video unlisted)
-👉 [Unlisted Sprint 1 Demo Video Link](https://youtu.be/your-sprint1-demo-link)
+👉 [Unlisted Sprint 1 Demo Video Link]( https://youtu.be/S8LtQ6oNvmo)
 
 ---
 
@@ -25,7 +25,7 @@ We evaluated the existing AWW site, identified performance and usability issues,
 ---
 
 ## Unfinished Work
-We planned to complete prototype integration between the front-end (React) and back-end (Node.js), but ran out of time.  
+We planned to complete prototype design for website. 
 This task has been carried over to Sprint 2, where we’ll focus on connecting both layers and integrating MongoDB for persistent storage.
 
 ---
@@ -68,4 +68,5 @@ Please review the following code files, which were actively developed during thi
  
 
 ---
+
 
