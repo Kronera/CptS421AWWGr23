@@ -4,13 +4,13 @@
 
 ## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
 
-### We plan on building a new webpage for A Womans Worth organization that is inviting and easy for users.
+### One Sentence description of the project
 
-TODO: A 20-second elevator pitch of your project - its core idea summarized in one sentence.
+We plan on building a new webpage for A Womans Worth organization that is inviting and easy for users while also being easy to understand by the administrative staff at AWW.
 
 ### Additional information about the project
 
-TODO: Write a compelling/creative/informative project description / summary
+AWW's vision for the website is to allow for users to share their stories with blogs on their webpage while also being able to look for events that are hosted by AWW
 
 ## Installation
 
