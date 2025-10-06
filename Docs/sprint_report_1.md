@@ -52,6 +52,7 @@ Please review the following code files, which were actively developed during thi
 
 ### Here's what went well:
   * Productive client communication and clear documentation.
+  * created figma prototype
   * Well-organized task distribution using Kanban.
   * Successful completion of all Sprint 1 documentation deliverables.
   * Gained foundational understanding of React, Node.js, and MongoDB.
@@ -62,11 +63,13 @@ Please review the following code files, which were actively developed during thi
   * Improve consistency in version control and commit message conventions.
 
 ### Here are changes we plan to implement in the next sprint:
-  * Connect the front-end and back-end frameworks.
+  * Create the front-end and begin back-end frameworks.
   * Implement database models for users, stories, and events.
+  * begin backend and front-end on our figma prototype
  
 
 ---
+
 
 
 
