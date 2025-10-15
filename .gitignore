@@ -1,0 +1,25 @@
+# Node / pnpm
+node_modules/
+.pnpm-store/
+pnpm-lock.yaml
+
+# Builds
+.next/
+build/
+dist/
+.cache/
+.tmp/
+.strapi/
+
+# Env & local data
+*.env
+*.env.*
+!**/.env.example
+code/infra/pgdata/
+Docker.volumes/
+
+# OS/editor
+.DS_Store
+*.log
+.idea/
+.vscode/
