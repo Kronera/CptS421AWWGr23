@@ -16,28 +16,54 @@ AWW's vision for the website is to allow for users to share their stories with b
 
 ### Prerequisites
 
-TODO: List what a user needs to have installed before running the installation instructions below (e.g., git, which versions of Ruby/Rails)
+### Prereqs
+- Node 20.x
+- Docker Desktop (engine running)
+- pnpm via Corepack (ships with Node 20)
 
-### Add-ons
+### 1) Clone
+git clone <REPO_URL>
+cd <REPO_NAME>
 
-TODO: List which add-ons are included in the project, and the purpose each add-on serves in your app.
+### 2) Start Postgres (Docker)
+cd code/infra
+docker compose up -d
+# verify
+docker ps --filter "ancestor=postgres:16"
+cd ../..
 
-### Installation Steps
+### 3) Configure envs
+# CMS
+cp code/apps/cms/.env.example code/apps/cms/.env
+# Web
+cp code/apps/web/.env.example code/apps/web/.env.local
 
-TODO: Describe the installation process (making sure you mention `bundle install`).
-Instructions need to be such that a user can just copy/paste the commands to get things set up and running. 
+### 4) Install deps (each app)
+cd code/apps/cms && pnpm i
+cd ../web && pnpm i
+cd ../..   # back to repo root
 
+### 5) Run the CMS (terminal A)
+cd code/apps/cms
+pnpm run build   # first time only
+pnpm run develop # http://localhost:1337/admin (create admin on first run)
 
-## Functionality
+### 6) Create minimal content (once)
+In the CMS admin:
+- Content-Type Builder → create `Event` (title, startDateTime, location)
+- Content Manager → add one Event and **Publish**
+- Settings → Roles → **Public** → enable `find` and `findOne` on Event → Save
 
-TODO: Write usage instructions. Structuring it as a walkthrough can help structure this section,
-and showcase your features.
+### 7) Run the web (terminal B)
+cd code/apps/web
+pnpm dev
+# Open http://localhost:3000/events and you should see your published Event.
 
-
-## Known Problems
-
-TODO: Describe any known issues, bugs, odd behaviors or code smells. 
-Provide steps to reproduce the problem and/or name a file or a function where the problem lives.
+### Common pitfalls
+- `ECONNREFUSED` on /events → CMS not running; start `pnpm run develop` in apps/cms.
+- 403 on /events → Public role permissions not set.
+- Empty list → Event not Published.
+- Port 5432 in use → stop local Postgres: `brew services stop postgresql` then `docker compose up -d`.
 
 
 ## Contributing
