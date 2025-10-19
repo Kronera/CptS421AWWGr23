@@ -4,6 +4,8 @@
 
 ## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
 
+### Demo our site here: https://spiderssuck.github.io/demo/
+
 ### One Sentence description of the project
 
 We plan on building a new webpage for A Womans Worth organization that is inviting and easy for users while also being easy to understand by the administrative staff at AWW.
