@@ -5,6 +5,8 @@
 ## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
 
 ### Demo our site here: https://spiderssuck.github.io/demo/
+<img width="1705" height="845" alt="image" src="https://github.com/user-attachments/assets/1cd067f5-b825-41c3-bd20-15afdcbec756" />
+
 
 ### One Sentence description of the project
 
