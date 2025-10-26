@@ -4,7 +4,6 @@
 
 ## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
 
-### Demo here: [https://spiderssuck.github.io/demo/](https://spiderssuck.github.io/aww-demo/)
 
 
 
