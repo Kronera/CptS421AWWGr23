@@ -430,6 +430,39 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactContact extends Struct.SingleTypeSchema {
+  collectionName: 'contacts';
+  info: {
+    displayName: 'contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    headline: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact.contact'
+    > &
+      Schema.Attribute.Private;
+    mapEmbed: Schema.Attribute.Text;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    subheadline: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -441,15 +474,119 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['Professional Development', 'Personal Growth']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    featured: Schema.Attribute.Boolean;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
     location: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    rsvpEmail: Schema.Attribute.Email;
     startDateTime: Schema.Attribute.DateTime;
+    summary: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
+  collectionName: 'hero_slides';
+  info: {
+    displayName: 'HeroSlide';
+    pluralName: 'hero-slides';
+    singularName: 'hero-slide';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fit: Schema.Attribute.Enumeration<['cover', 'contain']>;
+    focalX: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
+    focalY: Schema.Attribute.Enumeration<['top', 'center', 'bottom']>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-slide.hero-slide'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
+  collectionName: 'sponsors';
+  info: {
+    displayName: 'Sponsor';
+    pluralName: 'sponsors';
+    singularName: 'sponsor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    blurb: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sponsor.sponsor'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiStoryStory extends Struct.CollectionTypeSchema {
+  collectionName: 'stories';
+  info: {
+    displayName: 'Story';
+    pluralName: 'stories';
+    singularName: 'story';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    authorName: Schema.Attribute.String;
+    body: Schema.Attribute.Blocks;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::story.story'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    storyStatus: Schema.Attribute.Enumeration<
+      ['pending', 'approved', 'rejected']
+    > &
+      Schema.Attribute.DefaultTo<'pending'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -967,7 +1104,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::contact.contact': ApiContactContact;
       'api::event.event': ApiEventEvent;
+      'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
+      'api::sponsor.sponsor': ApiSponsorSponsor;
+      'api::story.story': ApiStoryStory;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

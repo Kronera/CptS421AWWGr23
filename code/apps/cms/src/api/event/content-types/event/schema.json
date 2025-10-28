@@ -19,6 +19,32 @@
     },
     "location": {
       "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Professional Development",
+        "Personal Growth"
+      ]
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "summary": {
+      "type": "blocks"
+    },
+    "rsvpEmail": {
+      "type": "email"
     }
   }
 }

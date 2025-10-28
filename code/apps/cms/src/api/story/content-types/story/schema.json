@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "singularName": "story",
+    "pluralName": "stories",
+    "displayName": "Story"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "authorName": {
+      "type": "string"
+    },
+    "storyStatus": {
+      "type": "enumeration",
+      "default": "pending",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ]
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
