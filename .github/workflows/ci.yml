@@ -19,45 +19,35 @@ jobs:
         with:
           version: 10
 
-      # 2) Setup Node (no built-in cache to avoid monorepo path issues)
+      # 2) Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3) Cache pnpm store (monorepo-safe)
-      - name: Get pnpm store path
-        id: pnpm-store
+      # 3) Cache pnpm store keyed by the ROOT lockfile
+      - name: Resolve pnpm store path
         run: echo "STORE_PATH=$(pnpm store path)" >> "$GITHUB_ENV"
 
       - name: Cache pnpm store
         uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('code/apps/**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('code/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Show tool versions
-        run: |
-          node -v
-          pnpm -v
-
-      # --- CMS ---
-      - name: Install deps (cms)
-        working-directory: ./code/apps/cms
+      # 4) Install once at the workspace root
+      - name: Install deps (workspace)
+        working-directory: ./code
         run: pnpm install --frozen-lockfile
 
-      - name: Build (cms)
+      # 5) Build apps (no per-app install needed)
+      - name: Build CMS
         working-directory: ./code/apps/cms
         run: pnpm run build
 
-      # --- WEB ---
-      - name: Install deps (web)
-        working-directory: ./code/apps/web
-        run: pnpm install --frozen-lockfile
-
-      - name: Build (web)
+      - name: Build Web
         working-directory: ./code/apps/web
         run: pnpm run build
 
