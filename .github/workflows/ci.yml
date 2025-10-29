@@ -1,4 +1,4 @@
-name: CI — Build CMS & Web (official pnpm setup)
+name: CI — Build CMS & Web (official pnpm + pinned versions)
 
 on:
   push:
@@ -13,26 +13,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: Install pnpm 10.18.2
         uses: pnpm/action-setup@v4
         with:
           version: 10.18.2
 
-      - name: Setup Node.js 20
+      - name: Setup Node.js v20.19.5
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: "pnpm"
+          node-version: 20.19.5
+          cache: pnpm
           cache-dependency-path: |
             code/apps/web/pnpm-lock.yaml
             code/apps/cms/pnpm-lock.yaml
 
-      - name: Show versions
+      - name: Show tool versions
         run: |
           node -v
           pnpm -v
+          which pnpm
 
-      # --- CMS ---
+      # ---------- CMS ----------
       - name: Install deps (cms)
         working-directory: ./code/apps/cms
         run: pnpm install --frozen-lockfile
@@ -49,7 +50,7 @@ jobs:
         working-directory: ./code/apps/cms
         run: pnpm run build
 
-      # --- WEB ---
+      # ---------- WEB ----------
       - name: Install deps (web)
         working-directory: ./code/apps/web
         run: pnpm install --frozen-lockfile
@@ -72,7 +73,6 @@ jobs:
     defaults:
       run:
         working-directory: ./code/infra
-
     steps:
       - uses: actions/checkout@v4
 
