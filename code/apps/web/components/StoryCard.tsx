@@ -17,7 +17,7 @@ export default function StoryCard({ title, excerpt, image, href, tag, readTime, 
   return (
     <article className="reveal rounded-2xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
       <div className="relative">
-        <img src={src} alt="" className="h-56 w-full rounded-t-2xl object-cover" style={{ objectPosition: objPos }} />
+        <img src={src} alt="" className="h-60 w-full rounded-t-2xl object-cover" style={{ objectPosition: objPos }} />
         <div className="absolute left-3 top-3 flex items-center gap-2">
           {tag && <span className="rounded-full bg-[#f7941D] px-2 py-1 text-xs font-medium text-white">{tag}</span>}
           {readTime && <span className="rounded-full bg-black/60 px-2 py-1 text-xs text-white">{readTime}</span>}

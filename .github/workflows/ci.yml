@@ -1,0 +1,86 @@
+name: CI — Build CMS & Web (pnpm workspace)
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  node-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20 with pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          # I don't have a root lockfile yet; cache off the app lockfiles. Add later.
+          cache-dependency-path: |
+            code/apps/web/pnpm-lock.yaml
+            code/apps/cms/pnpm-lock.yaml
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      # --- CMS ---
+      - name: Install deps (cms)
+        working-directory: ./code/apps/cms
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck (cms, optional)
+        working-directory: ./code/apps/cms
+        run: pnpm run typecheck --if-present
+
+      - name: Lint (cms, optional)
+        working-directory: ./code/apps/cms
+        run: pnpm run lint --if-present
+
+      - name: Build (cms)
+        working-directory: ./code/apps/cms
+        run: pnpm run build
+
+      # --- WEB ---
+      - name: Install deps (web)
+        working-directory: ./code/apps/web
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck (web, optional)
+        working-directory: ./code/apps/web
+        run: pnpm run typecheck --if-present
+
+      - name: Lint (web, optional)
+        working-directory: ./code/apps/web
+        run: pnpm run lint --if-present
+
+      - name: Build (web)
+        working-directory: ./code/apps/web
+        run: pnpm run build
+
+  compose-validate:
+    runs-on: ubuntu-latest
+    needs: node-build
+    defaults:
+      run:
+        working-directory: ./code/infra
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Validates YAML + env interpolation; fails fast on bad compose.
+      - name: Validate docker compose config
+        run: docker compose config
+
+      # Your compose only references a prebuilt image (postgres:16).
+      # This verifies the tag is pullable; no containers are started.
+      - name: Pull referenced images
+        run: docker compose pull --ignore-pull-failures
+
+      # No-op today (no services with `build:`), but future-proof
+      # once you add web/cms images to compose.
+      - name: Build local images (if any)
+        run: docker compose build --pull
