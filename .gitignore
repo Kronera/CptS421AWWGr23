@@ -1,20 +1,31 @@
 # Node / pnpm
 node_modules/
 .pnpm-store/
-pnpm-lock.yaml
 
-# Builds
+# Allow the workspace lockfile, but ignore any stray app-level lockfiles
+!/code/pnpm-lock.yaml
+code/apps/**/pnpm-lock.yaml
+
+# Builds / Artifacts
 .next/
 build/
 dist/
 .cache/
 .tmp/
 .strapi/
+coverage/
+.eslintcache
+.turbo/
 
 # Env & local data
 *.env
 *.env.*
 !**/.env.example
+
+# Strapi uploads (keep if you don't want to commit local media)
+code/apps/cms/public/uploads/
+
+# Docker local data (keep if you bind-mount; harmless otherwise)
 code/infra/pgdata/
 Docker.volumes/
 
