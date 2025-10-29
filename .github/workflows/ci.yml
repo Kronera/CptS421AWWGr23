@@ -1,4 +1,4 @@
-name: CI — Build CMS & Web (pnpm workspace)
+name: CI — Build CMS & Web (official pnpm setup)
 
 on:
   push:
@@ -11,24 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node 20 (with pnpm cache)
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.18.2
+
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: "pnpm"
           cache-dependency-path: |
             code/apps/web/pnpm-lock.yaml
             code/apps/cms/pnpm-lock.yaml
 
-      - name: Enable Corepack & activate pnpm 10.18.2
+      - name: Show versions
         run: |
-          corepack enable
-          corepack prepare pnpm@10.18.2 --activate
-          pnpm --version
-          which pnpm
+          node -v
+          pnpm -v
 
       # --- CMS ---
       - name: Install deps (cms)
@@ -72,8 +74,7 @@ jobs:
         working-directory: ./code/infra
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Validate docker compose config
         run: docker compose config
