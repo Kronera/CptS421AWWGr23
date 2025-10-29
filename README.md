@@ -1,89 +1,119 @@
-# CptS421 AWW Gr23
+# A Woman’s Worth Web Platform  
+**CptS421 Group 23 — Washington State University**
 
-# A Womans Worth
+---
 
-## We aim to create a felxible and inviting website to allow for women to share their stories and meet others, while also improving donations and user experience.
+## Project Overview
+We’re building a modern, welcoming web platform for **A Woman’s Worth (AWW)** — an organization dedicated to empowering women by providing a safe space to share stories, connect with others, and discover community events.  
 
+Our goal is to improve user experience, donation visibility, and administrative efficiency through a clean and accessible design.
 
+---
 
+## One-Sentence Summary
+A user-friendly website for A Woman’s Worth that allows visitors to share stories, explore events, and engage with the community — while keeping management simple for AWW staff.
 
-### One Sentence description of the project
+---
 
-We plan on building a new webpage for A Womans Worth organization that is inviting and easy for users while also being easy to understand by the administrative staff at AWW.
+## Tech Stack
+- **Frontend:** Next.js 15 (App Router, TypeScript, Tailwind CSS)  
+- **Backend CMS:** Strapi 5 (Node.js / Koa)  
+- **Database:** PostgreSQL (Dockerized)  
+- **Package Manager:** pnpm (workspace setup)  
+- **CI/CD:** GitHub Actions  
 
-### Additional information about the project
+---
 
-AWW's vision for the website is to allow for users to share their stories with blogs on their webpage while also being able to look for events that are hosted by AWW
-
-## Installation
+## Installation Guide
 
 ### Prerequisites
+Make sure you have these installed:
+- Node.js 20.x  
+- Docker Desktop (with Docker Engine running)  
+- pnpm via Corepack (ships with Node 20)  
 
-### Prereqs
-- Node 20.x
-- Docker Desktop (engine running)
-- pnpm via Corepack (ships with Node 20)
+---
 
-### 1) Clone
-git clone <REPO_URL>
-cd <REPO_NAME>
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Kronera/CptS421AWWGr23.git
+cd CptS421AWWGr23/code
+```
 
-### 2) Start Postgres (Docker)
-cd code/infra
+### 2. Start PostgreSQL (Docker)
+```bash
+cd infra
 docker compose up -d
-# verify
+# Verify container
 docker ps --filter "ancestor=postgres:16"
-cd ../..
+cd ..
+```
 
-### 3) Configure envs
+### 3. Configure Environment Variables
+```bash
 # CMS
-cp code/apps/cms/.env.example code/apps/cms/.env
+cp apps/cms/.env.example apps/cms/.env
+
 # Web
-cp code/apps/web/.env.example code/apps/web/.env.local
+cp apps/web/.env.example apps/web/.env.local
+```
 
-### 4) Install deps (each app)
-cd code/apps/cms && pnpm i
-cd ../web && pnpm i
-cd ../..   # back to repo root
+### 4. Install Dependencies
+```bash
+pnpm install
+```
+This installs dependencies for all workspace apps (CMS & Web).
 
-### 5) Run the CMS (terminal A)
-cd code/apps/cms
-pnpm run build   # first time only
-pnpm run develop # http://localhost:1337/admin (create admin on first run)
+### 5. Run the CMS (Strapi)
+```bash
+cd apps/cms
+pnpm build   # first time only
+pnpm develop # starts http://localhost:1337/admin
+```
+On first run:
+- Create your Strapi admin account.  
+- Add a Content Type `Event` (fields: title, startDateTime, location).  
+- Create one event and publish it.  
+- Go to **Settings → Roles → Public** and enable `find` + `findOne` for Event.
 
-### 6) Create minimal content (once)
-In the CMS admin:
-- Content-Type Builder → create `Event` (title, startDateTime, location)
-- Content Manager → add one Event and **Publish**
-- Settings → Roles → **Public** → enable `find` and `findOne` on Event → Save
-
-### 7) Run the web (terminal B)
-cd code/apps/web
+### 6. Run the Web (Next.js)
+```bash
+cd ../web
 pnpm dev
-# Open http://localhost:3000/events and you should see your published Event.
+```
+Open [http://localhost:3000/events](http://localhost:3000/events) — your published event should appear.
 
-### Common pitfalls
-- `ECONNREFUSED` on /events → CMS not running; start `pnpm run develop` in apps/cms.
-- 403 on /events → Public role permissions not set.
-- Empty list → Event not Published.
-- Port 5432 in use → stop local Postgres: `brew services stop postgresql` then `docker compose up -d`.
+---
 
+### Common Issues
+| Symptom | Cause | Fix |
+|----------|--------|-----|
+| `ECONNREFUSED` on `/events` | CMS not running | Start `pnpm develop` in `apps/cms` |
+| `403 Forbidden` | Permissions not set | Enable Public role for Event |
+| Empty event list | Event not published | Go to Content Manager → Publish |
+| Port 5432 in use | Local Postgres conflict | Stop local DB → `brew services stop postgresql` |
+
+---
 
 ## Contributing
+1. Fork the repo  
+2. Create your feature branch  
+   ```bash
+   git checkout -b feature/my-feature
+   ```
+3. Commit and push  
+   ```bash
+   git commit -m "feat: add new feature"
+   git push origin feature/my-feature
+   ```
+4. Open a Pull Request
 
-TODO: Leave the steps below if you want others to contribute to your project.
+---
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+## Additional Resources
+- [Sprint 1 Video Demo](https://youtu.be/S8LtQ6oNvmo)
 
-## Additional Documentation
-
-TODO: Provide links to additional documentation that may exist in the repo, e.g.,
-  * [Sprint one Video](https://youtu.be/S8LtQ6oNvmo)
-  * User links
+---
 
 ## License
-[License is located in the LICENSE file in main.](https://github.com/Kronera/CptS421AWWGr23/blob/4532b9d524ae301612e79c540446a4b5bb4fee3d/LICENSE)
+See the [LICENSE](https://github.com/Kronera/CptS421AWWGr23/blob/main/LICENSE) file for details.
