@@ -71,10 +71,9 @@ pnpm build   # first time only
 pnpm develop # starts http://localhost:1337/admin
 ```
 On first run:
-- Create your Strapi admin account.  
-- Add a Content Type `Event` (fields: title, startDateTime, location).  
-- Create one event and publish it.  
-- Go to **Settings → Roles → Public** and enable `find` + `findOne` for Event.
+- Create your Strapi admin account.
+- Strapi will automatically load existing Content Types (`Event`, `Story`, `Sponsor`, etc.) from the repository.
+- Optional: seed initial entries or publish existing ones if needed.
 
 ### 6. Run the Web (Next.js)
 ```bash
