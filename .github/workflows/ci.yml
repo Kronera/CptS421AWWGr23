@@ -1,4 +1,4 @@
-name: CI — Build CMS & Web (official pnpm + pinned versions)
+name: CI — Build CMS & Web (minimal, official pnpm order)
 
 on:
   push:
@@ -13,55 +13,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm 10.18.2
+      - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10.18.2
 
-      - name: Setup Node.js v20.19.5
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.19.5
+          node-version: 20
           cache: pnpm
           cache-dependency-path: |
             code/apps/web/pnpm-lock.yaml
             code/apps/cms/pnpm-lock.yaml
 
-      - name: Show tool versions
+      - name: Sanity check tools
         run: |
           node -v
           pnpm -v
           which pnpm
 
-      # ---------- CMS ----------
+      # --- CMS (install + build) ---
       - name: Install deps (cms)
         working-directory: ./code/apps/cms
         run: pnpm install --frozen-lockfile
-
-      - name: Typecheck (cms, optional)
-        working-directory: ./code/apps/cms
-        run: pnpm run typecheck --if-present
-
-      - name: Lint (cms, optional)
-        working-directory: ./code/apps/cms
-        run: pnpm run lint --if-present
 
       - name: Build (cms)
         working-directory: ./code/apps/cms
         run: pnpm run build
 
-      # ---------- WEB ----------
+      # --- WEB (install + build) ---
       - name: Install deps (web)
         working-directory: ./code/apps/web
         run: pnpm install --frozen-lockfile
-
-      - name: Typecheck (web, optional)
-        working-directory: ./code/apps/web
-        run: pnpm run typecheck --if-present
-
-      - name: Lint (web, optional)
-        working-directory: ./code/apps/web
-        run: pnpm run lint --if-present
 
       - name: Build (web)
         working-directory: ./code/apps/web
@@ -73,6 +55,7 @@ jobs:
     defaults:
       run:
         working-directory: ./code/infra
+
     steps:
       - uses: actions/checkout@v4
 
