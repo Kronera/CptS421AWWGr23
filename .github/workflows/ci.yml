@@ -19,13 +19,15 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-          # I don't have a root lockfile yet; cache off the app lockfiles. Add later.
           cache-dependency-path: |
             code/apps/web/pnpm-lock.yaml
             code/apps/cms/pnpm-lock.yaml
 
       - name: Enable Corepack
         run: corepack enable
+
+      - name: Install pnpm explicitly
+        run: npm install -g pnpm
 
       # --- CMS ---
       - name: Install deps (cms)
@@ -67,20 +69,16 @@ jobs:
     defaults:
       run:
         working-directory: ./code/infra
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Validates YAML + env interpolation; fails fast on bad compose.
       - name: Validate docker compose config
         run: docker compose config
 
-      # Your compose only references a prebuilt image (postgres:16).
-      # This verifies the tag is pullable; no containers are started.
       - name: Pull referenced images
         run: docker compose pull --ignore-pull-failures
 
-      # No-op today (no services with `build:`), but future-proof
-      # once you add web/cms images to compose.
       - name: Build local images (if any)
         run: docker compose build --pull
