@@ -111,6 +111,7 @@ Open [http://localhost:3000/events](http://localhost:3000/events) — your publi
 
 ## Additional Resources
 - [Sprint 1 Video Demo](https://youtu.be/S8LtQ6oNvmo)
+- [Sprint 2 Video Demo](https://youtu.be/yFJrJWtRzTI)
 
 ---
 
