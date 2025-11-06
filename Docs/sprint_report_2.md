@@ -35,7 +35,7 @@ During Sprint 2, our team transitioned from planning to implementation, focusing
 **Team Contributions:**
 - **Natan:** Led CI/CD setup, repository restructuring, Docker integration, environment unification, worked on Next.js page layouts, reusable components, frontend styling alignment with client branding, focused on Strapi content models, schema management, and CMS integration. 
 - **Julian:** designed figma prototype for frontend, worked on contact page, message system, added an FAQ for womens worth, added meet our leadershp team for AWW staff - bios for each member. added comntact information -email, office hours of client. Began development for AWW partnerships page.
-- **Kyle:** 
+- **Kyle:** Client reach out on features that they want to implement, and feedback, currecntly working on donation and store page and the implementation on whawt to use, documentation with sprint 2 report and sprint video.
 
 ---
 
