@@ -42,21 +42,21 @@ During Sprint 2, our team transitioned from planning to implementation, focusing
 ## Client Feedback & Next Steps
 During the most recent client meeting, feedback centered on expanding the platform’s informational and engagement content.  
 The client requested:
-* A **Partnerships page** to highlight collaboration opportunities and sponsors.  
-* A **Services page** describing AWW’s community programs and offerings.  
-* An **About Us page** introducing staff members with short biographies and photos.  
-* A **Past Events gallery** displaying images from previous community events.  
-* The **Store and Donations** sections to allow visitors to support the organization.  
+* A **Partnerships page** to highlight collaboration opportunities and sponsors.
+* A **Services page** describing AWW’s community programs and offerings.
+* An **About Us page** introducing staff members with short biographies and photos.
+* A **Past Events gallery** displaying images from previous community events.
+* The **Store and Donations** sections to allow visitors to support the organization.
 
 These additions will form the core goals of **Sprint 3**, alongside refinement of visual polish and content structure.
 
 ---
 
 ## Unfinished Work
-* Store and donation page functionality.  
-* Services, About Us, and Partnership pages (content and design to be finalized).  
-* Photo gallery section for past events.  
-* Integration of updated content and assets once provided by the client.  
+* Store and donation page functionality.
+* Services, About Us, and Partnership pages (content and design to be finalized).
+* Photo gallery section for past events.
+* Integration of updated content and assets once provided by the client.
 
 ---
 
@@ -68,10 +68,6 @@ All sprint progress and commits are tracked under:
 * [Issue 19](https://github.com/Kronera/CptS421AWWGr23/issues/19)
 * [Issue 18](https://github.com/Kronera/CptS421AWWGr23/issues/18)
 
-## Incomplete Issues/User Stories
-* [Issue 25](https://github.com/Kronera/CptS421AWWGr23/issues/25) Currently in the proccess of implementing this page/feature.
-* [Issue 24](https://github.com/Kronera/CptS421AWWGr23/issues/24) Currently in the proceess of implementing this feature.
-* [Issue 1](https://github.com/Kronera/CptS421AWWGr23/issues/1) Once all features are added full testing will begin.
 ---
 
 ## Incomplete Issues / User Stories
