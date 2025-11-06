@@ -13,16 +13,16 @@ significant learnings for your team.
 Currently we are working on donations and store page and a AI chatbot to be integrated into the website. 
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* [URL of issue 1](https://github.com/Kronera/CptS421AWWGr23/issues/23)
-* [URL of issue 2](https://github.com/Kronera/CptS421AWWGr23/issues/22)
-* [URL of issue 3](https://github.com/Kronera/CptS421AWWGr23/issues/21)
-* [URL of issue 4](https://github.com/Kronera/CptS421AWWGr23/issues/19)
-* [URL of issue 5](https://github.com/Kronera/CptS421AWWGr23/issues/18)
+* [Issue 23](https://github.com/Kronera/CptS421AWWGr23/issues/23)
+* [Issue 22](https://github.com/Kronera/CptS421AWWGr23/issues/22)
+* [Issue 21](https://github.com/Kronera/CptS421AWWGr23/issues/21)
+* [Issue 19](https://github.com/Kronera/CptS421AWWGr23/issues/19)
+* [Issue 18](https://github.com/Kronera/CptS421AWWGr23/issues/18)
 ## Incomplete Issues/User Stories
 Here are links to issues we worked on but did not complete in this sprint:
-* [URL of issue 1](https://github.com/Kronera/CptS421AWWGr23/issues/25) Currently in the proccess of implementing this page/feature.
-* [URL of issue 2](https://github.com/Kronera/CptS421AWWGr23/issues/24) Currently in the proceess of implementing this feature.
-* [URL of issue 3](https://github.com/Kronera/CptS421AWWGr23/issues/1) Once all features are added full testing will begin.
+* [Issue 25](https://github.com/Kronera/CptS421AWWGr23/issues/25) Currently in the proccess of implementing this page/feature.
+* [Issue 24](https://github.com/Kronera/CptS421AWWGr23/issues/24) Currently in the proceess of implementing this feature.
+* [Issue 1](https://github.com/Kronera/CptS421AWWGr23/issues/1) Once all features are added full testing will begin.
 ## Code Files for Review
 Please review the following code files, which were actively developed during this
 sprint, for quality:
