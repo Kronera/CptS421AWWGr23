@@ -3,7 +3,7 @@
 
 ## YouTube link of Sprint 2  
 Video (Make this video unlisted)  
-👉 [Unlisted Sprint 2 Demo Video Link]( )  
+👉 - [Sprint 2 Video Demo](https://youtu.be/yFJrJWtRzTI)
 
 ---
 
