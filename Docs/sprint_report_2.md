@@ -1,4 +1,4 @@
-# Sprint 3 Report
+# Sprint 2 Report
 ## YouTube link of Sprint 2 Video (Make this video unlisted)
 ## What's New (User Facing)
 * Created landding page, and other pages outlined by clients descisions.
@@ -26,9 +26,9 @@ Here are links to issues we worked on but did not complete in this sprint:
 ## Code Files for Review
 Please review the following code files, which were actively developed during this
 sprint, for quality:
-* [Name of code file 1](https://github.com/your_repo/file_extension)
-* [Name of code file 2](https://github.com/your_repo/file_extension)
-* [Name of code file 3](https://github.com/your_repo/file_extension)
+* [cms](https://github.com/Kronera/CptS421AWWGr23/tree/main/code/apps/cms)
+* [web](https://github.com/Kronera/CptS421AWWGr23/tree/main/code/apps/web)
+* [infa](https://github.com/Kronera/CptS421AWWGr23/tree/main/code/infra)
 ## Retrospective Summary
 Here's what went well:
 * Item 1
