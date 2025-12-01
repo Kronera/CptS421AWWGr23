@@ -1,0 +1,31 @@
+V. Testing and Acceptance Plan
+
+V.1. Test Objectives and Schedule
+The objective of our test plan is to ensure all major functionalities of the A Woman’s Worth (AWW) web application operate as intended, fully meeting both client requirements and user needs. To achieve these objectives, our testing will include a combination of unit, integration, and manual testing.
+
+- Unit testing will be used wherever feasible, ensuring that individual React components and utility functions handle data and user interactions correctly and efficiently.
+- Integration testing will focus on the interaction between frontend components and the Strapi CMS backend, particularly for content retrieval, form submission, and navigation.
+- Manual testing will be comprehensive for all UI components, given the importance of user experience. This will include detailed documentation of manual test procedures, covering navigation, form validation, image loading, and other user interactions. We will also ensure that UI components and content are accessible and responsive across devices.
+
+Once core functionalities are thoroughly tested, we may develop an iterative testing procedure for the UI that includes user testing and feedback. Involving users will allow us to gather valuable data on the website’s design and accessibility, ensuring the site meets both technical and user needs. Our existing testing procedures and frameworks will be critical in this process.
+
+To facilitate our testing requirements, we will utilize the following frameworks and tools:
+- Jest and React Testing Library for automated unit and integration tests
+- Manual test checklists for UI/UX and accessibility
+- Docker containers for consistent and isolated backend testing
+- CI/CD pipeline (e.g., GitHub Actions) to validate pull requests and automate testing
+
+Key deliverables:
+1. A comprehensive suite of JavaScript/TypeScript unit and integration tests
+2. Docker container testing environment for backend and database
+3. CI/CD pipeline for automated testing and deployment
+
+Schedule:
+- Test planning and setup: Week 1
+- Test development and execution: Weeks 2–3
+- Manual and exploratory testing: Week 3
+- Bug fixing and regression testing: Week 4
+- Final test report and documentation: End of Week 4
+
+V.2. Scope
+This section outlines our approach to testing and developing test materials for the AWW website. It details our overall testing and deployment processes, including the use of automated and manual testing, containerized environments, and CI/CD pipelines. The strategies and frameworks described here focus on the main user flows and integrations, but do not enumerate every possible input or route.

@@ -1,14 +1,17 @@
-'use client';
-
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock, Users } from 'lucide-react';
-import { Button } from '../../components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import { Input } from '../../components/ui/input';
-import { Textarea } from '../../components/ui/textarea';
+import { Button } from './ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import teamPhoto1 from 'figma:asset/5ad9db1d3c33660903b06817608d8610a55a22d9.png';
+import teamPhoto2 from 'figma:asset/48162ea9089758cc10d2faa8dbe2bd5a43faeb66.png';
+import teamPhoto3 from 'figma:asset/3ed3c2131dc765c2d7f7c62e4e6acac51aadffcc.png';
+import teamPhoto4 from 'figma:asset/d5948d09cd8c97a27cce078a11659528720a40c2.png';
+import teamPhoto5 from 'figma:asset/a1f8d94615401a0aebdbf726ded21dd040b5a52e.png';
 
-export default function ContactPage() {
+export function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,6 +44,12 @@ export default function ContactPage() {
       title: 'Call Us',
       content: '(555) 123-4567',
       description: 'Mon-Fri, 9am-5pm EST'
+    },
+    {
+      icon: <MapPin size={24} />,
+      title: 'Visit Us',
+      content: '123 Empowerment Street\nCity, State 12345',
+      description: 'Our main office location'
     }
   ];
 
@@ -81,31 +90,31 @@ export default function ContactPage() {
       name: 'Gaye Hallman',
       role: 'Founder/Executive Director',
       bio: 'Gaye was part of JITA City Church for over 25 years and hosted Open House gatherings through JITA Ministries. She now serves with Victory Faith Ministries as Usher/Security. For 10 years she co-facilitated JITA Annual Stir up the Gift Celebration. She works at the YMCA as a Care Coordinator, is a Certified Peer Counselor, Published Author, Graphic Designer, and Poet.',
-      image: '/images/gaye.jpg'
+      image: teamPhoto1
     },
     {
       name: 'Patricia McClain Osborne',
       role: 'President',
       bio: 'Patricia is Owner/Designer of Patty\'s M~O Designs and Bridal Alteration Specialist. She designs custom apparel for Beyond Pink nonprofit. Former manager at Richard Allen Apartments, President of Spokane Ballet Ensemble, and Spokane President of Women in Networking. Her mission is to help women live and love the skin they are in.',
-      image: '/images/patricia.jpg'
+      image: teamPhoto2
     },
     {
       name: 'Arnita C Hallman',
       role: 'Board Member',
       bio: 'Arnita is a Compliance Director with over 20 years of experience in financial services and serves as a DEIB Ambassador for CLA LLP. Previously Special Assistant to President/CEO of South Central Community Services, Inc. for over 10 years. Passionate about empowering minority women to dream big and reach for the stars.',
-      image: '/images/arnita.jpg'
+      image: teamPhoto3
     },
     {
       name: 'Desiree Thurman',
       role: 'Treasurer',
       bio: 'Desiree has been married for 48 years with three children, three grandchildren, and a great granddaughter. She served in the Air Force as a Computer Tech for over 20 years. After retirement, she started D\'s Devine Transportation and D\'s Dependable Daycare. She helps each woman see the value in their lives one woman at a time.',
-      image: '/images/desiree.jpg'
+      image: teamPhoto4
     },
     {
       name: 'Karen Boone',
       role: 'Outreach Director',
       bio: 'Karen has more than 25 years of experience in the nonprofit sector specializing in social change, community development, and cultural leadership. A Washington State certified crisis & crime victim advocate with over 20 years of service. Motivational speaker, business consultant, empowerment specialist, minister, and life coach. Mother of five and grandmother of eleven.',
-      image: '/images/karen.jpg'
+      image: teamPhoto5
     }
   ];
 
@@ -320,6 +329,26 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
+              {/* Quick Links */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Quick Actions</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <Button variant="outline" className="w-full justify-start">
+                    <MessageCircle className="mr-2" size={16} />
+                    Live Chat Support
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start">
+                    <Users className="mr-2" size={16} />
+                    Schedule a Meeting
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start">
+                    <Mail className="mr-2" size={16} />
+                    Subscribe to Newsletter
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
