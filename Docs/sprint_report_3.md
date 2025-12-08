@@ -2,7 +2,7 @@
 **Report (November 5, 2025 – December 6, 2025)**
 
 ## YouTube link of Sprint 3
-👉 *Unlisted Sprint 3 Demo Video*
+[*Unlisted Sprint 3 Demo Video*](https://youtu.be/mJVljiLobYo)
 
 ---
 
