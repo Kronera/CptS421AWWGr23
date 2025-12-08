@@ -1,110 +1,138 @@
-# Sprint 3  
-**Report (October 3, 2025 – November 5, 2025)**  
+# Sprint 3
+**Report (November 5, 2025 – December 6, 2025)**
 
-## YouTube link of Sprint 3  
-Video (Make this video unlisted)  
-👉 - [Sprint 3 Video Demo](https://youtu.be/yFJrJWtRzTI)
+## YouTube link of Sprint 3
+👉 *Unlisted Sprint 3 Demo Video*
 
 ---
 
 ## What's New (User Facing)
-* Delivered a **functional prototype** of the A Woman’s Worth (AWW) website.  
-* Implemented the **frontend using Next.js 15 (App Router)** styled with Tailwind CSS.  
-* Integrated the **Strapi 5 CMS** as a headless backend for managing stories, events, and partnerships.  
-* Established a **PostgreSQL database (Dockerized)** for local development.  
-* Created the first version of the **Stories** and **Events** sections, fully synced with Strapi content.  
-* Added **GitHub Actions CI pipeline** to automate builds and validate project integrity.  
-* Improved site layout consistency, navigation flow, and content loading behavior.  
-* Updated the project README to include detailed setup steps for Windows 11 (WSL) and macOS.  
-* Collected **client feedback** to shape next sprint deliverables.  
+
+* Completed **Stories** section.
+* * Completed **Landing Page** section.
+* Added **Story Submission** page allowing users to submit stories for review.
+* Implemented **Contact Page** with social links, address, map embed, and CMS-driven fields.
+* Enhanced **Events** layout and detail pages (date, time, location, images).
+* Integrated **partnership logo strip**, homepage improvements, and hero image fixes.
+* Added fallback images, loading states, and responsive UI polish.
+* Created first version of **Partnerships** and **Store** placeholder pages.
 
 ---
 
 ## Work Summary (Developer Facing)
-During Sprint 3, our team transitioned from planning to implementation, focusing on setting up the **core architecture**, improving developer workflows, and delivering the first client-visible prototype.  
 
-**Key Technical Work:**
-* **Monorepo Setup:** Consolidated all app code into `/code` using `pnpm workspaces` for `cms`, `web`, and `infra`.  
-* **Backend (CMS):** Configured Strapi 5 with PostgreSQL 16; set up content types for Stories, Events, and Sponsors; and created environment templates.  
-* **Frontend (Web):** Implemented StoriesCarousel and Events components connected to Strapi via REST API, achieving live CMS-driven content.  
-* **Docker Integration:** Created a `docker-compose.yml` under `infra/` to spin up the local PostgreSQL instance.  
-* **CI/CD:** Implemented a monorepo-aware GitHub Actions pipeline to build both CMS and Web apps from a single install step.  
-* **Cross-Platform Support:** Resolved Windows/macOS path and permission issues; validated that the project runs consistently on both via WSL2.  
-* **Documentation:** Extended the README with setup instructions, common issues, and quick-fix steps for new contributors.  
+Sprint 3 focused on actual **feature implementation**, **UI polish**, and **CMS integration**, moving the project from prototype to functioning web pages connected to real Strapi content.
+
+### Key Technical Work
+
+* Implemented Next.js dynamic routes for stories and events (`/stories/[id]`, `/events/[id]`).
+* Added client-side **Story Submission form** with image upload + text blocks.
+* Implemented **Strapi upload integration** and documentId lookups for persistent story URLs.
+* Added backend route `/api/stories/submit` with moderation workflow (pending → approved).
+* Added profanity and inappropriate content filtering design (validation planned for next sprint).
+* Built **story carousel**, auto-sliding layout logic, and image focal-point support.
+* Fixed Windows (WSL) issues, particularly Strapi uploads folder and file permissions.
+* Added fallback images and CMS-driven media queries.
+* Refined UI transitions, gradient themes, and sponsor / logo layout.
 
 **Team Contributions:**
-- **Natan:** Led CI/CD setup, repository restructuring, Docker integration, environment unification, worked on Next.js page layouts, reusable components, frontend styling alignment with client branding, focused on Strapi content models, schema management, and CMS integration. 
-- **Julian:** designed figma prototype for frontend, worked on contact page, message system, added an FAQ for womens worth, added meet our leadershp team for AWW staff - bios for each member. added comntact information -email, office hours of client. Began development for AWW partnerships page.
-- **Kyle:** Client reach out on features that they want to implement, and feedback, currecntly working on donation and store page and the implementation on whawt to use, documentation with Sprint 3 report and sprint video.
+- **Natan:** Led implementation of Landing Page, Stories, and Events experiences, including dynamic routing, story submission pipeline, moderation workflow design, and visual refinements across landing, hero components, carousel UX, and gradient styling. Managed CMS integration decisions and Next.js content flows.
+- **Julian:** Designed and implemented the Contact Page, including social links and CMS-driven fields. Took ownership of the Partnerships Page structure, layout, and early content population. Collaborated on UI polish and branding alignment, ensuring consistency across new pages.
+- **Kyle:** Directed sprint planning, scope clarity, and weekly coordination. Implemented Store and Donations placeholders and integration planning, evaluating Stripe and payment alternatives for Sprint 4. Drove outreach discussions with the client and validated requirements and content needs. Supported documentation and demo preparation.
+- **All Memebers** Contributed documentation, CI review, Windows installation instructions, and sprint report writing. Worked collaboratively on polishing UI, refining CMS workflows, and reshaping the product direction based on client feedback in real time.
 
 ---
 
-## Client Feedback & Next Steps
-During the most recent client meeting, feedback centered on expanding the platform’s informational and engagement content.  
-The client requested:
-* A **Partnerships page** to highlight collaboration opportunities and sponsors.
-* A **Services page** describing AWW’s community programs and offerings.
-* An **About Us page** introducing staff members with short biographies and photos.
-* A **Past Events gallery** displaying images from previous community events.
-* The **Store and Donations** sections to allow visitors to support the organization.
+## CI / Infrastructure
 
-These additions will form the core goals of **Sprint 3**, alongside refinement of visual polish and content structure.
+* Updated GitHub Actions pipeline to workspace-level `pnpm install`.
+* CI now builds both CMS + Web on every push.
+* Added Docker PostgreSQL validation.
+* Enhanced README instructions for Windows/WSL and macOS setup.
+* Created Windows-installation documentation (Docker, pnpm, WSL, Strapi permissions).
+
+---
+
+## Client Feedback & Impact on Direction
+
+The client requested focus on **content and engagement**, so we deferred user profiles and chatbot features.
+
+Client-requested priorities:
+* Partnerships page
+* Services page
+* About/Staff page
+* Past Events gallery
+* Store + Donations
+* Content & photography updates
+* Final branding polish
+
+These became the new target items for Sprint 4.
 
 ---
 
 ## Unfinished Work
-* Store and donation page functionality.
-* Services, About Us, and Partnership pages (content and design to be finalized).
-* Photo gallery section for past events.
-* Integration of updated content and assets once provided by the client.
+
+* Services page (awaiting content and design)
+* About Us / Staff information
+* Partnerships content population
+* Past Events media gallery
+* Donation and Store functionality (awaiting assets and payment preference confirmation)
 
 ---
 
 ## Completed Issues / User Stories
-All sprint progress and commits are tracked under:  
-* [Issue 23](https://github.com/Kronera/CptS421AWWGr23/issues/23)
-* [Issue 22](https://github.com/Kronera/CptS421AWWGr23/issues/22)
-* [Issue 21](https://github.com/Kronera/CptS421AWWGr23/issues/21)
-* [Issue 19](https://github.com/Kronera/CptS421AWWGr23/issues/19)
-* [Issue 18](https://github.com/Kronera/CptS421AWWGr23/issues/18)
+
+See GitHub project board during this sprint:
+* Stories implementation
+* Story submission with moderation
+* Contact page
+* CMS integration updates
+* Events polish
+* Homepage hero and sponsor banners
+* Windows / Strapi upload issue resolution
+* CI workflow update
 
 ---
 
 ## Incomplete Issues / User Stories
-* Initial store/donation flow (awaiting client assets).  
-* Partnership page (pending design).  
-* Content population for Services and About Us.  
+
+* Store / donation payment flow (Stripe + PayPal)
+* Services and About content
+* Gallery pages
 
 ---
 
 ## Code Files for Review
-* `.github/workflows/ci.yml` — GitHub Actions build & validation pipeline.
-* `code/infra/docker-compose.yml` — PostgreSQL service configuration.
-* `code/apps/cms/` — Strapi content types and API setup.
-* `code/apps/web/` — Next.js frontend components and pages.
-* `code/README.md` — Updated installation and run instructions.
+
+* `apps/web/app/stories/**`  
+* `apps/web/app/events/**`  
+* `apps/web/app/contact/**`  
+* `apps/web/app/api/stories/submit/route.ts`  
+* `apps/cms/src/api/stories`  
+* `infra/docker-compose.yml`
+* `.github/workflows/ci.yml`
 
 ---
 
 ## Retrospective Summary
 
 ### What Went Well
-* Delivered a fully functional CMS-driven prototype with Strapi + Next.js.
-* Cross-platform consistency achieved with Docker and WSL2.
-* CI pipeline ensures reliable, repeatable builds.
-* Client provided clear, actionable feedback for next sprint.
-* Solid collaboration across development areas (frontend, backend, infra).
+* Major visible progress for client-facing pages
+* Story submission pipeline working end-to-end
+* CI stability across multiple OS environments
+* Solid client feedback guiding priorities
+* Better UI polish and consistent branding
 
 ### What Needs Improvement
-* Earlier testing for Windows setup to reduce environment delays.  
-* More granular issue tracking for mid-sprint progress.  
-* Define clearer handoff points between CMS and Web teams.  
+* Windows testing earlier in the sprint
+* Faster client content gathering (photos, bios, etc.)
+* Move toward shared dev database to avoid data drift
 
-### Next Sprint (Goals)
-* Implement Partnerships, Services, About Us, and Past Events pages.  
-* Develop Store and Donation flow once client assets are provided.  
-* Apply client feedback from the Sprint 3 presentation.
-* Continue visual refinements and content alignment with branding.
-* Prepare for initial deployment testing (cheapest vs moderate hosting options).
-
----
+### Next Sprint Goals (Sprint 4)
+* Begin Chatbot Implementation
+* Complete Services, Partnership, and Staff pages
+* Build Past Events photo gallery
+* Implement Store + Donations (Stripe + PayPal)
+* Moderate inappropriate story submissions
+* Deployment options evaluation (cheapest vs moderate)
+* Begin hosting testing and domain planning
