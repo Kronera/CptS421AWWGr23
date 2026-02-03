@@ -22,8 +22,10 @@ coverage/
 *.env.*
 !**/.env.example
 
-# Strapi uploads (keep if you don't want to commit local media)
-code/apps/cms/public/uploads/
+# Strapi uploads
+code/apps/cms/public/uploads/*
+!code/apps/cms/public/uploads/.gitignore
+!code/apps/cms/public/uploads/.gitkeep
 
 # Docker local data (keep if you bind-mount; harmless otherwise)
 code/infra/pgdata/
