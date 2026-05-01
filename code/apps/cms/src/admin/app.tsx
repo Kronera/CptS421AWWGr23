@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import type { StrapiApp } from '@strapi/strapi/admin';
-import { unstable_useContentManagerContext as useContentManagerContext } from '@strapi/strapi/admin';
 
 const SendNewsletterButton = () => {
-  const ctx = useContentManagerContext() as any;
-  const model: string = ctx?.contentType?.uid ?? ctx?.slug ?? '';
-  const documentId: string = ctx?.id ?? ctx?.documentId ?? '';
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
-  // Only show on Newsletter Post entries
-  if (model !== 'api::newsletter-post.newsletter-post') return null;
-  if (!documentId) return null;
+  // Parse documentId from URL: /admin/content-manager/collection-types/api::newsletter-post.newsletter-post/[documentId]
+  const pathname = window.location.pathname;
+  const match = pathname.match(/\/content-manager\/collection-types\/api::newsletter-post\.newsletter-post\/([^/?]+)/);
+  if (!match) return null;
+  const documentId = match[1];
+  if (!documentId || documentId === 'create') return null;
 
   const handleSend = async () => {
     if (status === 'sending') return;
