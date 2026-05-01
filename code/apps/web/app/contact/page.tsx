@@ -18,15 +18,34 @@ export default function ContactPage() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '', inquiryType: 'general' });
-    }, 3000);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '', inquiryType: 'general' });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setSubmitError(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setSubmitError('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -254,11 +273,15 @@ export default function ContactPage() {
 
                       <Button
                         type="submit"
-                        className="w-full bg-[#f7941D] hover:bg-[#F79520] text-white py-3 rounded-full transition-all duration-200 hover:scale-105"
+                        disabled={isSubmitting}
+                        className="w-full bg-[#f7941D] hover:bg-[#F79520] text-white py-3 rounded-full transition-all duration-200 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         <Send className="mr-2" size={20} />
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </Button>
+                      {submitError && (
+                        <p className="text-red-600 text-sm mt-2">{submitError}</p>
+                      )}
                     </form>
                   </CardContent>
                 </Card>
