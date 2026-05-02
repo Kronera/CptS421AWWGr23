@@ -4,4 +4,4 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::shipping-setting.shipping-setting');
+export default factories.createCoreRouter('api::shipping-setting.shipping-setting' as any);
