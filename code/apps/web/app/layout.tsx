@@ -22,11 +22,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "A Woman's Worth",
   description: "Empowering women through community, support, and transformative programs.",
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
 };
 
 type SiteSettings = {
