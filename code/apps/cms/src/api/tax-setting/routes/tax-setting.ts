@@ -4,4 +4,4 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::tax-setting.tax-setting');
+export default factories.createCoreRouter('api::tax-setting.tax-setting' as any);

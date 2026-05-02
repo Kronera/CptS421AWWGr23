@@ -4,4 +4,4 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreService('api::tax-setting.tax-setting');
+export default factories.createCoreService('api::tax-setting.tax-setting' as any);
