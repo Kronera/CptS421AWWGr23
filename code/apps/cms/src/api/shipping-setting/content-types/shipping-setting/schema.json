@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "shipping_setting",
+  "info": {
+    "singularName": "shipping-setting",
+    "pluralName": "shipping-settings",
+    "displayName": "Shipping Setting",
+    "description": "Flat shipping fee applied at checkout, with an optional free-shipping subtotal threshold."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "flatRate": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0,
+      "required": true
+    },
+    "freeShippingThreshold": {
+      "type": "decimal",
+      "min": 0
+    },
+    "label": {
+      "type": "string",
+      "default": "Standard Shipping"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
