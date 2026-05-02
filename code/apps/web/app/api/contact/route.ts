@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const CMS_URL = process.env.STRAPI_API_URL || process.env.NEXT_PUBLIC_CMS_URL;
+const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 export async function POST(req: NextRequest) {
+  if (!CMS_URL) {
+    return NextResponse.json({ error: 'CMS_URL not configured.' }, { status: 500 });
+  }
   try {
     const body = await req.json();
     const { name, email, subject, message, inquiryType } = body;
@@ -36,6 +39,6 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error('Contact route error:', msg);
-    return NextResponse.json({ error: `Server error: ${msg}` }, { status: 500 });
+    return NextResponse.json({ error: `Failed to reach CMS: ${msg}` }, { status: 500 });
   }
 }
