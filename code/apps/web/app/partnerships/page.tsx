@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Building2, ExternalLink, Handshake, Mail, Sparkles } from "lucide-react";
+import { Building2, ExternalLink, Mail, Sparkles } from "lucide-react";
 import { CMS_URL as CMS_URL_FROM_LIB } from "@/lib/strapi";
+import { PartnershipsHero } from "@/components/PartnershipsHero";
+import { PartnershipsPartnersSection } from "@/components/PartnershipsPartnersSection";
 
 export const revalidate = 30;
 
@@ -90,7 +92,6 @@ async function getPartners(): Promise<Partner[]> {
     const url =
       `${CMS_URL}/api/partners?` +
       `populate=logo` +
-      `&filters[active][$eq]=true` +
       `&sort=displayOrder:asc` +
       `&pagination[pageSize]=100`;
 
@@ -125,7 +126,6 @@ async function getSponsors(): Promise<Sponsor[]> {
     const url =
       `${CMS_URL}/api/sponsors?` +
       `populate=logo` +
-      `&filters[active][$eq]=true` +
       `&sort=displayOrder:asc` +
       `&pagination[pageSize]=100`;
 
@@ -293,49 +293,9 @@ export default async function PartnershipsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-orange-50/50 via-white to-blue-50/40 text-[var(--aww-text)]">
-      <section className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#062f73] via-[#0a4fa8] to-[#f79520] px-6 py-16 text-center text-white shadow-2xl sm:px-10">
-          <div className="absolute inset-0 opacity-25 [background:radial-gradient(circle_at_15%_20%,white,transparent_28%),radial-gradient(circle_at_85%_15%,white,transparent_24%),radial-gradient(circle_at_50%_100%,white,transparent_30%)]" />
+      <PartnershipsHero />
 
-          <div className="relative z-10">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/25 backdrop-blur">
-              <Handshake className="h-8 w-8" />
-            </div>
-
-            <h1 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">
-              Partnerships
-            </h1>
-
-            <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-white/90">
-              We are grateful for the partners and sponsors who support A Woman&apos;s
-              Worth and help make our mission possible.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Community Support"
-          title="Community Partners"
-          description="These organizations collaborate with A Woman&apos;s Worth to expand resources, programs, and community support."
-        />
-
-        {orderedPartners.length === 0 ? (
-          <EmptyState label="Partner information will be added soon." />
-        ) : (
-          <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            {orderedPartners.map((partner) => (
-              <EntityCard
-                key={partner.id}
-                item={partner}
-                badge={partner.partnerType}
-                featuredLabel="Featured"
-              />
-            ))}
-          </div>
-        )}
-      </section>
+      <PartnershipsPartnersSection partners={orderedPartners} />
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <SectionHeader
