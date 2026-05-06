@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { StrapiApp } from '@strapi/strapi/admin';
 
 const SendNewsletterButton = () => {
   const [clicked, setClicked] = useState(false);
+  const [documentId, setDocumentId] = useState<string | null>(null);
 
-  // Read documentId from the URL — safe, no hooks that could crash the admin
-  // URL pattern: /admin/content-manager/collection-types/api::newsletter-post.newsletter-post/[documentId]
-  const match = window.location.pathname.match(
-    /\/content-manager\/collection-types\/api::newsletter-post\.newsletter-post\/([^/?]+)/
-  );
-  if (!match) return null;
-  const documentId = match[1];
-  if (!documentId || documentId === 'create') return null;
+  useEffect(() => {
+    try {
+      const match = window.location.pathname.match(
+        /\/content-manager\/collection-types\/api::newsletter-post\.newsletter-post\/([^/?]+)/
+      );
+      if (match && match[1] && match[1] !== 'create') {
+        setDocumentId(match[1]);
+      }
+    } catch {}
+  }, []);
+
+  if (!documentId) return null;
 
   return (
     <div style={{ marginTop: '16px', padding: '12px', background: '#f0f4ff', borderRadius: '8px', border: '1px solid #c7d4f0' }}>
