@@ -21,7 +21,7 @@ async function getNewsletterPosts(): Promise<NewsletterPost[]> {
       `${CMS_URL}/api/newsletter-posts?` +
       `populate=coverImage` +
       `&filters[active][$eq]=true` +
-      `&sort=publishDate:desc` +
+      `&sort=createdAt:desc` +
       `&pagination[pageSize]=100`;
 
     const res = await fetch(url, { next: { revalidate: 30 } });
@@ -42,7 +42,7 @@ async function getNewsletterPosts(): Promise<NewsletterPost[]> {
         excerpt: a?.excerpt ?? "",
         category: a?.category ?? null,
         authorName: a?.authorName ?? null,
-        publishDate: a?.publishDate ?? row.createdAt ?? null,
+        publishDate: row.createdAt ?? null,
         coverUrl: img ? mediaUrl(img) : null,
         featured: a?.featured ?? false,
       } as NewsletterPost;
