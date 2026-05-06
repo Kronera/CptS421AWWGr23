@@ -101,7 +101,7 @@ function PostCard({ post, featured = false }: { post: NewsletterPost; featured?:
   return (
     <Link href={href} className="group block h-full">
       <div className="h-full flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <div className="h-48 overflow-hidden bg-gradient-to-br from-[#004080] to-[#0d4ea6]">
+        <div className="aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-[#004080] to-[#0d4ea6]">
           {post.coverUrl ? (
             <img
               src={post.coverUrl}

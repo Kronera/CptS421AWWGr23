@@ -121,14 +121,14 @@ const finalDonationUrl = safeExternalUrl(donationUrl);
                 <Phone className="h-4 w-4 opacity-90" />
                 <span>{phone || "509-385-7074"}</span>
               </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 opacity-90" />
+                <span>509-290-7687 (leave msg for appt)</span>
+              </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 opacity-90" />
                 <span>
-                  {address || 
-                    <>
-                    59 E Queens Ave<br />Suite 210<br />Spokane, WA 99207
-                    </>
-                  }
+                  {address || "327 E Pacific St. (office visit only)"}
                 </span>
               </li>
             </ul>

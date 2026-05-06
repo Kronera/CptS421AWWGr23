@@ -60,6 +60,18 @@ export default function ContactPage() {
       title: 'Call Us',
       content: '509-385-7074',
       description: 'Mon-Fri, 9am-5pm PST'
+    },
+    {
+      icon: <Phone size={24} />,
+      title: 'Work Phone',
+      content: '509-290-7687',
+      description: 'Leave a message for appointments'
+    },
+    {
+      icon: <MapPin size={24} />,
+      title: 'Office Address',
+      content: '327 E Pacific St.',
+      description: 'Office visit only'
     }
   ];
 
