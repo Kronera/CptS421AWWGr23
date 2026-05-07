@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion, useInView, type Variants } from "motion/react";
 import { Building2, ExternalLink, Sparkles } from "lucide-react";
 
 type Partner = {
@@ -16,17 +16,17 @@ type Partner = {
   displayOrder: number;
 };
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const slideInLeft = {
+const slideInLeft: Variants = {
   hidden: { opacity: 0, x: -40 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const slideInRight = {
+const slideInRight: Variants = {
   hidden: { opacity: 0, x: 40 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
@@ -37,7 +37,7 @@ function ScrollReveal({
   className = "",
 }: {
   children: React.ReactNode;
-  variants?: object;
+  variants?: Variants;
   className?: string;
 }) {
   const ref = useRef(null);
@@ -51,7 +51,7 @@ function ScrollReveal({
       animate={isInView ? "visible" : "hidden"}
       className={className}
     >
-      {children}
+      {children as any}
     </motion.div>
   );
 }
